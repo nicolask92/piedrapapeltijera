@@ -1,0 +1,107 @@
+<html>
+    <head>
+        <title>Empezando JavaScript</title>
+    </head>
+    <body>
+        <script>
+            
+         
+
+         // Funcion ingreso de dato
+         function seleccion() {
+             let k=0;
+             while (k!=1){
+                let suerte = prompt("¿Piedra, Papel o Tijera?");
+                let standarizar = suerte.toLowerCase();
+             if (standarizar == "piedra" || standarizar == "papel" || standarizar == "tijera") {
+                alert("vamos bien");
+                k=1;
+                return (suerte);
+             }
+             else {
+                 alert("Escribi bien");
+             }
+             }
+         }
+
+            // Funcion asignacion de juego maquina            
+         function computerPlay() {
+             let max = 5;
+             let min = 2;
+             let juegomach = (Math.floor(Math.random()*(max-min)+min));
+             if (juegomach == 4) {
+                 return "piedra";
+             }
+             else if (juegomach == 3) {
+                 return "papel";
+
+             }
+             else {
+                 return "tijera";
+
+             }
+             }
+
+            // Juego
+            let i=0;
+            let j=0;
+            let l=0;
+         let PlayRound = () => {
+            do {
+                let evalo = seleccion();
+                let evalm = computerPlay();
+                // console.log(evalm);
+                 console.log(evalo);
+                if ((evalo == "piedra") && (evalm=="papel"))
+                {
+                    alert("Computadora Gana");
+                    j++;
+                    i++;
+                }
+                else if ((evalo=="papel" && evalm=="tijera")){
+                    alert("Computadora Gana");
+                    j++;
+                    i++;
+                }
+                else if ((evalo=="tijera" && evalm=="piedra")){
+                    alert("Computadora Gana");
+                    j++;
+                    i++;
+                }
+                else if ((evalo=="papel" && evalm=="piedra"))
+                {
+                    alert("Usuario Gana");
+                    l++;
+                    i++;
+                }
+                else if ((evalo=="tijera" && evalm=="papel"))
+                {
+                    alert("Usuario Gana");
+                    l++;
+                    i++;
+                }
+                else if ((evalo=="piedra" && evalm=="tijera"))
+                {
+                    alert("Usuario Gana");
+                    l++;
+                    i++;
+                }
+                else {
+                    alert("Empate! Se repite!");
+                }
+                
+            } while(i<5);
+
+            if(l>j) {
+                alert("Final Gano Usuario");
+            }
+            else {
+                alert("Final Gano la Maquina");
+            }
+         };
+
+         PlayRound();
+     
+        </script>
+    </body>
+</html>
